@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 
 namespace aspnetserver.Data
 {
@@ -6,7 +7,9 @@ namespace aspnetserver.Data
     {
         public DbSet<Post> Posts { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder) => dbContextOptionsBuilder.UseSqlServer("Data Source=WINSERVER2019;User ID=StandardUser;Password=pa55word;Database=reactProject;");
+        //protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder) => dbContextOptionsBuilder.UseSqlServer("Data Source=WINSERVER2019;User ID=StandardUser;Password=pa55word;Database=reactProject;");
+        protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder) => dbContextOptionsBuilder.UseSqlite("Data Source=./Data/AppDB.db;");
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
