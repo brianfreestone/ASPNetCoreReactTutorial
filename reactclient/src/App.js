@@ -48,14 +48,14 @@ export default function App() {
     <div className="container">
       <div className="row min-vh-100">
         <div className="col d-flex flex-column justify-content-center align-items-center">
-          
+
           {(showingCreateNewPostForm === false && postCurrentlyUpdated === null) && (
             <div>
-              <h1>ASP.NET Core React Tutorial</h1>
+              <h1>ASP.NET Core React CRUD</h1>
 
               <div className="mt-5">
-                <button onClick={getPosts} className="btn btn-dark btn-lg w-100">Get Posts from server</button>
-                <button onClick={() => { setShowingCreateNewPostForm(true) }} className="btn btn-secondary btn-lg w-100 mt-4">Create New Post</button>
+                <button onClick={getPosts} className="btn btn-primary btn-lg w-100">Get Posts from server</button>
+                <button onClick={() => { setShowingCreateNewPostForm(true) }} className="btn btn-success btn-lg w-100 mt-4">Create New Post</button>
               </div>
             </div>
           )}
@@ -63,7 +63,7 @@ export default function App() {
           {(posts.length > 0 && showingCreateNewPostForm === false && postCurrentlyUpdated === null) && renderPostsTable()}
 
           {showingCreateNewPostForm && <PostCreateForm onPostCreated={onPostCreated} />}
-          {postCurrentlyUpdated !== null && <PostUpdateForm post={postCurrentlyUpdated} onPostUpdated={onPostUpdated}/>}
+          {postCurrentlyUpdated !== null && <PostUpdateForm post={postCurrentlyUpdated} onPostUpdated={onPostUpdated} />}
         </div>
       </div>
     </div>
@@ -88,8 +88,8 @@ export default function App() {
                 <td>{post.title}</td>
                 <td>{post.content}</td>
                 <td>
-                  <button className="btn btn-dark btn-lg mx-3 my-3" onClick={() => { setPostCurrentlyUpdated(post) }}>Update</button>
-                  <button className="btn btn-secondary btn-lg" onClick={() => {if(window.confirm(`Are you sure you want to delete the post titled "${post.title}?"`)) deletePost(post.postId) } }>Delete</button>
+                  <button className="btn btn-outline-primary btn-lg mx-3 my-3" onClick={() => { setPostCurrentlyUpdated(post) }}>Update</button>
+                  <button className="btn btn-danger btn-lg" onClick={() => { if (window.confirm(`Are you sure you want to delete the post titled "${post.title}?"`)) deletePost(post.postId) }}>Delete</button>
 
                 </td>
               </tr>
@@ -104,7 +104,7 @@ export default function App() {
 
   function onPostCreated(createdPost) {
     setShowingCreateNewPostForm(false);
-    
+
     if (createdPost === null) {
       return;
     }
@@ -114,7 +114,7 @@ export default function App() {
     getPosts();
   }
 
-  function onPostUpdated(updatedPost){
+  function onPostUpdated(updatedPost) {
     setPostCurrentlyUpdated(null);
 
     if (updatedPost === null) {
@@ -123,10 +123,10 @@ export default function App() {
 
     let postsCopy = [...posts];
 
-    const index = postsCopy.findIndex((postsCopyPost, currentIndex)=> {
-        if (postsCopyPost.postId === updatedPost.postId) {
-          return true;
-        }
+    const index = postsCopy.findIndex((postsCopyPost, currentIndex) => {
+      if (postsCopyPost.postId === updatedPost.postId) {
+        return true;
+      }
     });
 
     if (index !== -1) {
@@ -138,7 +138,7 @@ export default function App() {
     alert(`Post succcessfully updated. "${updatedPost.title}"`);
   }
 
-  function onPostDeleted(deletedPostPostId){
+  function onPostDeleted(deletedPostPostId) {
     let postsCopy = [...posts];
 
     const index = postsCopy.findIndex((postsCopyPost, currentIndex) => {
