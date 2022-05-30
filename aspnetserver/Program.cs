@@ -40,6 +40,8 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
+app.UseCors("CORSPolicy");
+
 app.MapGet("/get-all-posts", async () => await PostsRepository.GetPostsAsync()).WithTags("Posts Endpoints");
 
 app.MapGet("/get-post-by-id/{postId}", async (int postId) => 
