@@ -59,8 +59,8 @@ export default function PostUpdateForm(props) {
                 <input value={formData.content} name="content" type="text" className="form-control" onChange={handleChange} />
             </div>
 
-            <button onClick={handleSubmit} className="btn btn-dark btn-lg w-100 mt-5">Submit</button>
-            <button onClick={() => props.onPostUpdated(null)} className="btn btn-secondary btn-lg w-100 mt-3">Cancel</button>
+            <button onClick={handleSubmit} className="btn btn-success btn-lg w-25 mt-5">Submit</button>
+            <button onClick={() => props.onPostUpdated(null)} className="btn btn-danger btn-lg w-25 mt-5 mx-5">Cancel</button>
 
         </form>
     );

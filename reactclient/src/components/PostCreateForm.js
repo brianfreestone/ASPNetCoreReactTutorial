@@ -5,7 +5,7 @@ export default function PostCreateForm(props) {
 
     const initialFormData = Object.freeze({
         title: "Post x",
-        content: "This is post x and it has some good content"
+        content: "This is a great example of React and CRUD!"
     });
 
     const [formData, setFormData] = useState(initialFormData);
