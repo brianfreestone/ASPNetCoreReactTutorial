@@ -73,7 +73,7 @@ app.MapPut("/update-post", async (Post post) =>
 
 }).WithTags("Posts Endpoints");
 
-app.MapDelete("/delete-post", async (int postId) =>
+app.MapDelete("/delete-post/{postId}", async (int postId) =>
 {
     bool isDeleted = await PostsRepository.DeletePostAsync(postId);
 
