@@ -51,7 +51,7 @@ export default function App() {
 
           {(showingCreateNewPostForm === false && postCurrentlyUpdated === null) && (
             <div>
-              <h1>ASP.NET Core React.js CRUD</h1>
+              <h1>.NET Core React.js CRUD</h1>
 
               <div className="mt-5">
                 <button onClick={getPosts} className="btn btn-primary btn-lg w-100">Get Posts from server</button>
