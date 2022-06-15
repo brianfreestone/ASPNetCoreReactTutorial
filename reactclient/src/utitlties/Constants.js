@@ -6,7 +6,7 @@ const ENDPOINTS = {
     GET_POST_BY_ID: 'get-post-by-id',
     CREATE_POST: 'create-post',
     UPDATE_POST: 'update-post',
-    DELETE_POST_BY_ID: 'delete-post-by-id'
+    DELETE_POST_BY_ID: 'delete-post'
 };
 
 const development = {
